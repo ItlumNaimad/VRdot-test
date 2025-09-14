@@ -18,6 +18,7 @@
 8. [Metodyka pracy i testowania](#8-metodyka-pracy-i-testowania)
 9. [Wstępny harmonogram prac](#9-wstępny-harmonogram-prac)
 10. [Podsumowanie](#10-podsumowanie)
+11. [Załącznik A: Plan Realizacji Technicznej i Zasoby](#załącznik-a-plan-realizacji-technicznej-i-zasoby)
 
 ---
 
@@ -96,6 +97,8 @@ Proces tworzenia gry będzie przebiegał iteracyjnie. Po zaimplementowaniu klucz
 *   **Metoda:** Sesje testowe, po których uczestnicy wypełnią krótką ankietę i/lub wezmą udział w nieformalnym wywiadzie.
 *   **Wynik:** Zebrane opinie posłużą do wprowadzenia konkretnych zmian w projekcie (np. zmiana dźwięku, modyfikacja zachowania przeciwnika, poprawa sterowania), co zostanie udokumentowane w pracy.
 
+*Szczegółowy plan realizacji technicznej, wraz z listą kluczowych zasobów i kamieniami milowymi, znajduje się w Załączniku A.*
+
 ## 9. Wstępny harmonogram prac
 
 *   **Semestr V (bieżący):**
@@ -112,3 +115,56 @@ Proces tworzenia gry będzie przebiegał iteracyjnie. Po zaimplementowaniu klucz
 ## 10. Podsumowanie
 
 Przedstawiony projekt to praca inżynierska skupiona na praktycznym procesie tworzenia gry wideo. Jej unikalność polega na eksploracji rzadko wykorzystywanej mechaniki opartej na słuchu w środowisku VR. Praca udokumentuje cały cykl produkcyjny – od pomysłu, przez implementację techniczną, aż po testy z użytkownikami i iteracyjne ulepszanie produktu. Wierzę, że jest to ambitny i ciekawy temat, który pozwoli mi w pełni wykorzystać i rozwinąć umiejętności zdobyte na studiach.
+
+---
+
+## Załącznik A: Plan Realizacji Technicznej i Zasoby
+
+Niniejszy załącznik zawiera zbiór kluczowych zasobów technicznych oraz plan działania w formie kamieni milowych, które będą stanowić podstawę do realizacji projektu.
+
+### A.1 Konfiguracja Środowiska VR w Godot 4
+
+*   **Oficjalna Dokumentacja Godot:**
+    *   *OpenXR w Godot 4:* Wyjaśnienie podstawowych koncepcji i wymagań konfiguracyjnych.
+    *   *Twój pierwszy projekt XR:* Samouczek wprowadzający w tworzenie podstawowej sceny VR.
+*   **Plugin "Godot XR Tools":**
+    *   *Repozytorium na GitHubie:* Niezbędna wtyczka dostarczająca gotowe komponenty dla VR (kontroler gracza, interakcje), co znacząco przyspieszy pracę.
+*   **Polecane Tutoriale Wideo:**
+    *   *Godot XR Tutorials (Bastiaan Olij):* Merytoryczne materiały od jednego z głównych deweloperów XR w Godocie.
+    *   *MitchDev - "Complete Godot 4 VR Beginner Tutorial":* Przystępny tutorial pokazujący konfigurację projektu od zera.
+*   **Kluczowe węzły silnika:** `XROrigin3D`, `XRCamera3D`, `XRController3D`.
+
+### A.2 Implementacja Dźwięku Przestrzennego (Spatial Audio)
+
+*   **Oficjalna Dokumentacja Godot:**
+    *   *Odtwarzanie audio:* Ogólne wprowadzenie do systemów audio w silniku.
+    *   *Dźwięk 3D i Pozycjonowanie Audio:* **Kluczowy materiał dla projektu**, wyjaśniający działanie dźwięku przestrzennego.
+*   **Polecane Tutoriale Wideo:**
+    *   *FinePointCGI - "3D Positional Audio In Godot 4":* Praktyczny pokaz konfiguracji pozycjonowania dźwięku 3D.
+    *   *GDQuest - "Godot's Audio Buses Tutorial":* Materiał o zarządzaniu wieloma źródłami dźwięku za pomocą szyn audio.
+*   **Kluczowe węzły i koncepty:**
+    *   `AudioStreamPlayer3D`: "Głośnik" w świecie gry, emitujący dźwięk z określonej pozycji.
+    *   `AudioListener3D`: "Uszy" gracza, domyślnie powiązane z kamerą.
+    *   `Tłumienie (Attenuation)`: Parametr kontrolujący, jak dźwięk cichnie wraz z odległością.
+    *   `HRTF`: Opcja w ustawieniach projektu, której włączenie znacząco poprawia realizm i precyzję lokalizacji dźwięku na słuchawkach.
+
+### A.3 Plan Działania i Kamienie Milowe (Checklista)
+
+Poniższa lista przedstawia kolejne kroki w realizacji projektu.
+
+#### Faza 1: Fundamenty i Konfiguracja
+- [x] Przygotowanie wstępnej dokumentacji projektu.
+- [x] Utworzenie repozytorium kodu (GitHub).
+- [x] Inicjalizacja projektu w silniku Godot 4.4.
+- [ ] Konfiguracja pluginu Godot XR Tools i weryfikacja działania podstawowej sceny na goglach VR.
+
+#### Faza 2: Prototypowanie Rdzennych Mechanik
+- [ ] Stworzenie sceny testowej dla weryfikacji dźwięku przestrzennego (jeden statyczny i jeden ruchomy emiter dźwięku).
+- [ ] Implementacja prototypu pierwszej mechaniki przeciwnika ("Balora").
+- [ ] Walidacja kluczowej pętli rozgrywki (słyszę -> lokalizuję -> reaguję).
+
+#### Faza 3: Rozwój i Testowanie
+- [ ] Implementacja kolejnych 1-2 mechanik przeciwników.
+- [ ] Stworzenie prostego systemu do zbierania feedbacku (np. ankieta Google Forms).
+- [ ] Przeprowadzenie pierwszej, nieformalnej tury testów z użytkownikami.
+- [ ] Iteracja i wprowadzenie poprawek na podstawie zebranych opinii.
