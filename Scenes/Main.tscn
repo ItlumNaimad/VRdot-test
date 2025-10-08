@@ -1,3 +1,75 @@
-[gd_scene format=3 uid="uid://42kxvksgptkd"]
+[gd_scene load_steps=13 format=3 uid="uid://42kxvksgptkd"]
+
+[ext_resource type="Script" uid="uid://caausuqxec3aq" path="res://Scripts/XRPlayer.gd" id="1_pbw6q"]
+[ext_resource type="Texture2D" uid="uid://d3qvt0affmqvn" path="res://Wooden Floor Texture/wood2_COLOR.jpg" id="1_rgh2o"]
+[ext_resource type="Texture2D" uid="uid://ch8av1pfgrixv" path="res://Wooden Floor Texture/wood2_OCC.jpg" id="2_pbw6q"]
+[ext_resource type="Texture2D" uid="uid://bg60ju5dmsgbv" path="res://Wooden Floor Texture/wood2_SPEC.jpg" id="3_v1gob"]
+[ext_resource type="Texture2D" uid="uid://bkxkmyk7y0hl4" path="res://Wooden Floor Texture/wood2_NRM.jpg" id="4_jw32o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pbw6q"]
+albedo_color = Color(0.811154, 0.215819, 0.225851, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_v1gob"]
+material = SubResource("StandardMaterial3D_pbw6q")
+size = Vector3(0.01, 0.01, 0.7)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jw32o"]
+albedo_color = Color(0.206753, 0.479476, 0.74585, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_50glp"]
+material = SubResource("StandardMaterial3D_jw32o")
+size = Vector3(0.01, 0.01, 0.7)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_50glp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vy5pj"]
+disable_ambient_light = true
+albedo_texture = ExtResource("1_rgh2o")
+metallic = 1.0
+metallic_texture = ExtResource("3_v1gob")
+normal_enabled = true
+normal_texture = ExtResource("4_jw32o")
+ao_enabled = true
+ao_texture = ExtResource("2_pbw6q")
+uv1_scale = Vector3(300, 300, 300)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bmxlf"]
+material = SubResource("StandardMaterial3D_vy5pj")
+size = Vector3(-100, -40, -100)
 
 [node name="Node3D" type="Node3D"]
+
+[node name="Player" type="XROrigin3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+script = ExtResource("1_pbw6q")
+
+[node name="XRCamera3D" type="XRCamera3D" parent="Player"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Player/XRCamera3D"]
+spot_range = 42.449
+spot_angle = 16.35
+
+[node name="LeftCont" type="XRController3D" parent="Player"]
+tracker = &"left_hand"
+show_when_tracked = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player/LeftCont"]
+mesh = SubResource("BoxMesh_v1gob")
+
+[node name="RightCont" type="XRController3D" parent="Player"]
+tracker = &"right_hand"
+show_when_tracked = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player/RightCont"]
+mesh = SubResource("BoxMesh_50glp")
+
+[node name="Bounds" type="Node3D" parent="."]
+
+[node name="Floor" type="StaticBody3D" parent="Bounds"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bounds/Floor"]
+shape = SubResource("WorldBoundaryShape3D_50glp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bounds"]
+mesh = SubResource("BoxMesh_bmxlf")
+skeleton = NodePath("../Floor")
