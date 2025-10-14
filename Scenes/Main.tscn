@@ -71,3 +71,11 @@ skeleton = NodePath("../Floor")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bounds/Floor"]
 shape = SubResource("WorldBoundaryShape3D_50glp")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.8669, -6.31133)
+billboard = 2
+modulate = Color(0.61496, 1, 0.517656, 1)
+text = "Helloooooooooooo
+world"
+font_size = 100

@@ -43,6 +43,7 @@ show_when_tracked = true
 mesh = SubResource("BoxMesh_v1gob")
 
 [node name="MovementDirect" parent="Player/LeftCont" instance=ExtResource("3_mgmcv")]
+max_speed = 3.0
 
 [node name="RightCont" type="XRController3D" parent="Player"]
 tracker = &"right_hand"
