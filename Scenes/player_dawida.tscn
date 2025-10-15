@@ -1,9 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://bcqemaop4hgfp"]
+[gd_scene load_steps=10 format=3 uid="uid://bcqemaop4hgfp"]
 
 [ext_resource type="Script" uid="uid://caausuqxec3aq" path="res://Scripts/XRPlayer.gd" id="1_kp876"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="2_bjx00"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="3_mgmcv"]
 [ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="4_ufjd5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ufjd5"]
+radius = 0.466162
+height = 1.91953
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pbw6q"]
 albedo_color = Color(0.811154, 0.215819, 0.225851, 1)
@@ -26,14 +30,17 @@ script = ExtResource("1_kp876")
 
 [node name="PlayerBody" parent="Player" instance=ExtResource("2_bjx00")]
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/PlayerBody"]
+shape = SubResource("CapsuleShape3D_ufjd5")
+
 [node name="XRCamera3D" type="XRCamera3D" parent="Player"]
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Player/XRCamera3D"]
 light_energy = 2.828
 light_indirect_energy = 1.914
 light_size = 0.105
-spot_range = 47.4038
-spot_angle = 26.115
+spot_range = 6.44646
+spot_angle = 21.3029
 
 [node name="LeftCont" type="XRController3D" parent="Player"]
 tracker = &"left_hand"
@@ -42,8 +49,8 @@ show_when_tracked = true
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player/LeftCont"]
 mesh = SubResource("BoxMesh_v1gob")
 
-[node name="MovementDirect" parent="Player/LeftCont" instance=ExtResource("3_mgmcv")]
-max_speed = 3.0
+[node name="FunctionTeleport" parent="Player/LeftCont" instance=ExtResource("4_ufjd5")]
+strength = 4.0
 
 [node name="RightCont" type="XRController3D" parent="Player"]
 tracker = &"right_hand"
@@ -56,11 +63,8 @@ mesh = SubResource("BoxMesh_50glp")
 max_speed = 50.0
 strafe = true
 
-[node name="FunctionTeleport" parent="Player/RightCont" instance=ExtResource("4_ufjd5")]
-strength = 4.0
-
 [node name="SpotLight3D2" type="SpotLight3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -4.9653, 0.172999)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -3.51947, 0.172999)
 light_energy = 5.0
-spot_range = 39.216
+spot_range = 4.34887
 spot_angle = 37.33

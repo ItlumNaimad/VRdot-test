@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c0ldu1b8yr62q"]
+[gd_scene load_steps=23 format=3 uid="uid://c0ldu1b8yr62q"]
 
 [ext_resource type="PackedScene" uid="uid://bcqemaop4hgfp" path="res://Scenes/player_dawida.tscn" id="1_jw32o"]
 [ext_resource type="Texture2D" uid="uid://d3qvt0affmqvn" path="res://Wooden Floor Texture/wood2_COLOR.jpg" id="1_rgh2o"]
@@ -7,9 +7,54 @@
 [ext_resource type="Texture2D" uid="uid://bkxkmyk7y0hl4" path="res://Wooden Floor Texture/wood2_NRM.jpg" id="4_jw32o"]
 [ext_resource type="Texture2D" uid="uid://crqvck3ypuvd2" path="res://textures/Tiles074_2K-PNG/Tiles074_2K-PNG_Color.png" id="6_jw32o"]
 [ext_resource type="Texture2D" uid="uid://53yt05lle15x" path="res://textures/Tiles074_2K-PNG/Tiles074_2K-PNG_Roughness.png" id="7_50glp"]
+[ext_resource type="AudioStream" uid="uid://bk7iwp8si4fbs" path="res://assets/ambience.mp3" id="8_50glp"]
+[ext_resource type="PackedScene" uid="uid://bymhm4q7a4dfg" path="res://Scenes/barrel.tscn" id="8_vy5pj"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_jw32o"]
-size = Vector3(4.50534, 49.9307, 99)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_50glp"]
+height = 13.489
+radius = 4.34521
+
+[sub_resource type="FogMaterial" id="FogMaterial_50glp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_50glp"]
+next_pass = SubResource("FogMaterial_50glp")
+transparency = 4
+blend_mode = 1
+depth_draw_mode = 2
+no_depth_test = true
+shading_mode = 2
+diffuse_mode = 2
+albedo_color = Color(0.101961, 0.403922, 0, 0.419608)
+emission = Color(0.113725, 0.388235, 0.113725, 1)
+emission_energy_multiplier = 6.9
+ao_enabled = true
+ao_light_affect = 0.7
+refraction_scale = 0.23
+distance_fade_min_distance = 1.9
+distance_fade_max_distance = 7.95
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vy5pj"]
+lightmap_size_hint = Vector2i(145, 61)
+material = SubResource("StandardMaterial3D_50glp")
+flip_faces = true
+uv2_padding = 3.0
+top_radius = 4.516
+bottom_radius = 4.516
+height = 1.166
+radial_segments = 78
+rings = 14
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_4kpch"]
+plane = Plane(1, 0, 0, 0)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_vy5pj"]
+plane = Plane(-1, 0, 0, 0)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_bmxlf"]
+plane = Plane(0, 0, 1, 0)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_grg3l"]
+plane = Plane(0, 0, -1, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vy5pj"]
 albedo_color = Color(0.808998, 0.808998, 0.808998, 1)
@@ -49,18 +94,57 @@ size = Vector3(-100, -40, -100)
 [node name="Node3D" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_jw32o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.0181, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -16.3672, 0)
+
+[node name="Teleport" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.109, -20, -46.015)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Teleport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.516841, 0, 1.91918)
+shape = SubResource("CylinderShape3D_50glp")
+
+[node name="Decal" type="Decal" parent="Teleport"]
+visible = false
+size = Vector3(5.47119, 6.77588, 4.82471)
+texture_albedo = ExtResource("1_rgh2o")
+texture_normal = ExtResource("4_jw32o")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Teleport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10716, 1.87546)
+mesh = SubResource("CylinderMesh_vy5pj")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Teleport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0712137, 2.84728, 1.81155)
+light_color = Color(0.166283, 0.549654, 0.0541593, 1)
+light_energy = 0.396
+light_indirect_energy = 3.315
+light_specular = 8.65
+omni_range = 5.243
+omni_attenuation = -4.66
+omni_shadow_mode = 0
 
 [node name="Bounds" type="Node3D" parent="."]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Bounds"]
+[node name="Walrice" type="StaticBody3D" parent="Bounds"]
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Bounds/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.2473, -5.61899, -1.91156)
-shape = SubResource("BoxShape3D_jw32o")
+[node name="XP" type="CollisionShape3D" parent="Bounds/Walrice"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_4kpch")
+
+[node name="XD" type="CollisionShape3D" parent="Bounds/Walrice"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_vy5pj")
+
+[node name="ZP" type="CollisionShape3D" parent="Bounds/Walrice"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50)
+shape = SubResource("WorldBoundaryShape3D_bmxlf")
+
+[node name="ZD" type="CollisionShape3D" parent="Bounds/Walrice"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.260536, -2.50519, 49.9801)
+shape = SubResource("WorldBoundaryShape3D_grg3l")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Bounds"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20.2184, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
 mesh = SubResource("BoxMesh_jw32o")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Bounds"]
@@ -70,12 +154,26 @@ skeleton = NodePath("../Floor")
 [node name="Floor" type="StaticBody3D" parent="Bounds"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bounds/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.8965, 0)
 shape = SubResource("WorldBoundaryShape3D_50glp")
 
+[node name="Barrel1" parent="Bounds" instance=ExtResource("8_vy5pj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.224, -15.5494, 0)
+
+[node name="Node3D" parent="Bounds" instance=ExtResource("8_vy5pj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.0167, -16.0254, -16.0357)
+
 [node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.8669, -6.31133)
+transform = Transform3D(1, 0, 0, 0, 1.21222, 0, 0, 0, 1, 9.84267, -8.94813, -6.31133)
 billboard = 2
 modulate = Color(0.61496, 1, 0.517656, 1)
-text = "Helloooooooooooo
-world"
-font_size = 100
+text = "VR Game
+Lightless
+"
+font_size = 155
+outline_size = 27
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_50glp")
+volume_db = 0.095
+autoplay = true
