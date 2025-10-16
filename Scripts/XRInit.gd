@@ -16,3 +16,6 @@ static func init(vp: Viewport):
 		vp.use_xr = true
 	else:
 		print("OpenXR not initialized, please check if your headset is connected")
+
+static func is_xr_active() -> bool:
+	return xr_interface != null

@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bcqemaop4hgfp"]
+[gd_scene load_steps=11 format=3 uid="uid://bcqemaop4hgfp"]
 
 [ext_resource type="Script" uid="uid://caausuqxec3aq" path="res://Scripts/XRPlayer.gd" id="1_kp876"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="2_bjx00"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="3_mgmcv"]
+[ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="4_mwrhm"]
 [ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="4_ufjd5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ufjd5"]
@@ -23,48 +24,59 @@ albedo_color = Color(0.206753, 0.479476, 0.74585, 1)
 material = SubResource("StandardMaterial3D_jw32o")
 size = Vector3(0.01, 0.01, 0.7)
 
-[node name="Node3D" type="Node3D"]
-
-[node name="Player" type="XROrigin3D" parent="."]
+[node name="Player" type="XROrigin3D"]
 script = ExtResource("1_kp876")
 
-[node name="PlayerBody" parent="Player" instance=ExtResource("2_bjx00")]
+[node name="PlayerBody" parent="." instance=ExtResource("2_bjx00")]
+collision_layer = 528384
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/PlayerBody"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerBody"]
 shape = SubResource("CapsuleShape3D_ufjd5")
 
-[node name="XRCamera3D" type="XRCamera3D" parent="Player"]
+[node name="XRCamera3D" type="XRCamera3D" parent="."]
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Player/XRCamera3D"]
+[node name="SpotLight3D" type="SpotLight3D" parent="XRCamera3D"]
 light_energy = 2.828
 light_indirect_energy = 1.914
 light_size = 0.105
 spot_range = 6.44646
 spot_angle = 21.3029
 
-[node name="LeftCont" type="XRController3D" parent="Player"]
+[node name="TeleportLabel" type="Label3D" parent="XRCamera3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+visible = false
+billboard = 2
+modulate = Color(0.27, 1, 0.720167, 1)
+text = "Naciśnij prawy trigger aby teleportować"
+
+[node name="LeftCont" type="XRController3D" parent="."]
 tracker = &"left_hand"
 show_when_tracked = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player/LeftCont"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LeftCont"]
 mesh = SubResource("BoxMesh_v1gob")
 
-[node name="FunctionTeleport" parent="Player/LeftCont" instance=ExtResource("4_ufjd5")]
+[node name="FunctionTeleport" parent="LeftCont" instance=ExtResource("4_ufjd5")]
 strength = 4.0
 
-[node name="RightCont" type="XRController3D" parent="Player"]
+[node name="MovementTurn" parent="LeftCont" instance=ExtResource("4_mwrhm")]
+
+[node name="RightCont" type="XRController3D" parent="."]
 tracker = &"right_hand"
 show_when_tracked = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player/RightCont"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RightCont"]
 mesh = SubResource("BoxMesh_50glp")
 
-[node name="MovementDirect" parent="Player/RightCont" instance=ExtResource("3_mgmcv")]
+[node name="MovementDirect" parent="RightCont" instance=ExtResource("3_mgmcv")]
 max_speed = 50.0
 strafe = true
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="Player"]
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -3.51947, 0.172999)
 light_energy = 5.0
 spot_range = 4.34887
 spot_angle = 37.33
+
+[connection signal="button_pressed" from="RightCont" to="." method="_on_right_button"]

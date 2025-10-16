@@ -18,6 +18,8 @@ material = SubResource("StandardMaterial3D_dedrl")
 [node name="Balora" type="Node3D"]
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+floor_constant_speed = true
+safe_margin = 0.126
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 shape = SubResource("CapsuleShape3D_rd3l6")
@@ -27,10 +29,10 @@ mesh = SubResource("CapsuleMesh_uos45")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="CharacterBody3D"]
 stream = ExtResource("1_o4w2q")
-volume_db = 0.085
-unit_size = 11.3
+volume_db = 2.5
+unit_size = 51.26
 autoplay = true
-max_distance = 6.8
+max_distance = 40.0
 panning_strength = 1.55
 emission_angle_degrees = 56.0
 emission_angle_filter_attenuation_db = -3.9

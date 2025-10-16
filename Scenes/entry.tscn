@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://byvctao7fum0h"]
+
+[ext_resource type="Script" uid="uid://dy8eam8yquyk6" path="res://Scripts/entry.gd" id="1_cofld"]
+[ext_resource type="PackedScene" uid="uid://c0ldu1b8yr62q" path="res://Scenes/intro_room.tscn" id="1_s8422"]
+[ext_resource type="PackedScene" uid="uid://dw7awxlq7byjb" path="res://Scenes/second_room.tscn" id="2_cofld"]
+[ext_resource type="PackedScene" uid="uid://bcqemaop4hgfp" path="res://Scenes/player.tscn" id="3_rcu7j"]
+
+[node name="Entry" type="Node"]
+script = ExtResource("1_cofld")
+
+[node name="Player" parent="." instance=ExtResource("3_rcu7j")]
+
+[node name="IntroRoom" parent="." instance=ExtResource("1_s8422")]
+
+[node name="GameRoom" parent="." instance=ExtResource("2_cofld")]
