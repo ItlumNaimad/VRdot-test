@@ -1,0 +1,94 @@
+[gd_scene load_steps=18 format=3 uid="uid://dw7awxlq7byjb"]
+
+[ext_resource type="Texture2D" uid="uid://gfslc5llp55s" path="res://textures/Tiles059_2K/Tiles059_2K-PNG_Color.png" id="1_co3l4"]
+[ext_resource type="Texture2D" uid="uid://cx85x2ohvhr23" path="res://textures/Tiles059_2K/Tiles059_2K-PNG_Metalness.png" id="2_lsh38"]
+[ext_resource type="Texture2D" uid="uid://btxiu7n6ijrh" path="res://textures/Tiles059_2K/Tiles059_2K-PNG_NormalDX.png" id="3_p3c8b"]
+[ext_resource type="Texture2D" uid="uid://c3aksvm0l24bu" path="res://textures/Tiles059_2K/Tiles059_2K-PNG_Roughness.png" id="4_ta31k"]
+[ext_resource type="Texture2D" uid="uid://cgovpsl2wkige" path="res://textures/PaintedPlaster014_2K-PNG/PaintedPlaster014_2K-PNG_Color.png" id="5_pdnpe"]
+[ext_resource type="Texture2D" uid="uid://cibjy5m1qgu74" path="res://textures/PaintedPlaster014_2K-PNG/PaintedPlaster014_2K-PNG_AmbientOcclusion.png" id="6_blh6k"]
+[ext_resource type="Texture2D" uid="uid://jq4ntohydohx" path="res://textures/PaintedPlaster014_2K-PNG/PaintedPlaster014_2K-PNG_NormalDX.png" id="7_n2gwt"]
+[ext_resource type="Texture2D" uid="uid://dxkn2b0pv3s1u" path="res://textures/PaintedPlaster014_2K-PNG/PaintedPlaster014_2K-PNG_Roughness.png" id="8_oif8m"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_pdnpe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_blh6k"]
+disable_ambient_light = true
+albedo_texture = ExtResource("1_co3l4")
+metallic = 1.0
+metallic_texture = ExtResource("2_lsh38")
+roughness_texture = ExtResource("4_ta31k")
+normal_enabled = true
+normal_scale = 3.54
+normal_texture = ExtResource("3_p3c8b")
+anisotropy_enabled = true
+anisotropy = 0.57
+ao_enabled = true
+ao_texture = ExtResource("4_ta31k")
+refraction_enabled = true
+uv1_scale = Vector3(-17.895, -17.895, -17.895)
+
+[sub_resource type="BoxMesh" id="BoxMesh_n2gwt"]
+material = SubResource("StandardMaterial3D_blh6k")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_co3l4"]
+size = Vector3(2.95795, 19.3779, 57.4248)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lsh38"]
+size = Vector3(66.3408, 15.2291, 1.56836)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p3c8b"]
+size = Vector3(1, 15.8933, 57.0693)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ta31k"]
+size = Vector3(62.0339, 16.1804, 3.08252)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_85jgw"]
+disable_ambient_light = true
+albedo_texture = ExtResource("5_pdnpe")
+roughness_texture = ExtResource("8_oif8m")
+normal_enabled = true
+normal_texture = ExtResource("7_n2gwt")
+ao_enabled = true
+ao_texture = ExtResource("6_blh6k")
+uv1_scale = Vector3(-18.41, -18.41, -18.41)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6bqpf"]
+material = SubResource("StandardMaterial3D_85jgw")
+size = Vector3(-62, 20, 58.225)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 8.74228e-08, 0, -8.74228e-08, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_pdnpe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(60.6924, 0, 0, 0, 1, 0, 0, 0, 57.1638, 0, 0, 0)
+mesh = SubResource("BoxMesh_n2gwt")
+
+[node name="Walls" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.7584, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.259186, 9.47989, 0.00292969)
+shape = SubResource("BoxShape3D_co3l4")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Walls/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.7584, 7.11453, 28.3619)
+shape = SubResource("BoxShape3D_lsh38")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Walls/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.6978, 7.29617, -0.25293)
+shape = SubResource("BoxShape3D_p3c8b")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Walls/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.5681, 6.40475, -28.8339)
+shape = SubResource("BoxShape3D_ta31k")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 30.2096, 8.53721, 0.481539)
+mesh = SubResource("BoxMesh_6bqpf")

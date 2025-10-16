@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3vph7eq0xomf"]
+
+[ext_resource type="AudioStream" uid="uid://jp7cnkohmf5d" path="res://assets/ballora.mp3" id="1_o4w2q"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rd3l6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dedrl"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+albedo_color = Color(0.815686, 0, 0.211765, 0.686275)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_uos45"]
+material = SubResource("StandardMaterial3D_dedrl")
+
+[node name="Balora" type="Node3D"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_rd3l6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("CapsuleMesh_uos45")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="CharacterBody3D"]
+stream = ExtResource("1_o4w2q")
+volume_db = 0.085
+unit_size = 11.3
+autoplay = true
+max_distance = 6.8
+panning_strength = 1.55
+emission_angle_degrees = 56.0
+emission_angle_filter_attenuation_db = -3.9

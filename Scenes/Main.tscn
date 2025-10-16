@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bkxkmyk7y0hl4" path="res://Wooden Floor Texture/wood2_NRM.jpg" id="4_jw32o"]
 [ext_resource type="Texture2D" uid="uid://crqvck3ypuvd2" path="res://textures/Tiles074_2K-PNG/Tiles074_2K-PNG_Color.png" id="6_jw32o"]
 [ext_resource type="Texture2D" uid="uid://53yt05lle15x" path="res://textures/Tiles074_2K-PNG/Tiles074_2K-PNG_Roughness.png" id="7_50glp"]
-[ext_resource type="AudioStream" uid="uid://bk7iwp8si4fbs" path="res://assets/ambience.mp3" id="8_50glp"]
 [ext_resource type="PackedScene" uid="uid://bymhm4q7a4dfg" path="res://Scenes/barrel.tscn" id="8_vy5pj"]
+[ext_resource type="AudioStream" uid="uid://bqoamm4pa1ug6" path="res://assets/Horror ambient 1v2.ogg" id="9_vy5pj"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_50glp"]
 height = 13.489
@@ -68,7 +68,7 @@ ao_light_affect = 1.0
 ao_texture = ExtResource("7_50glp")
 backlight_enabled = true
 refraction_enabled = true
-uv1_scale = Vector3(9.88, 9.88, 9.88)
+uv1_scale = Vector3(19.035, 19.035, 19.035)
 
 [sub_resource type="BoxMesh" id="BoxMesh_jw32o"]
 material = SubResource("StandardMaterial3D_vy5pj")
@@ -173,7 +173,10 @@ Lightless
 font_size = 155
 outline_size = 27
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_50glp")
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("9_vy5pj")
 volume_db = 0.095
+unit_size = 100.0
 autoplay = true
+max_distance = 87.79
+parameters/looping = true
