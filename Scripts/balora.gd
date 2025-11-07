@@ -43,7 +43,7 @@ func _physics_process(delta):
 	
 	# Wektor "prostopadły" (keirunek TANGENCJALNY / statyczny)
 	# Obrót wektora o 90 stopni na płąszczyźnie XZ
-	var dir_tangential = dir_to_player.rotated(Vector3.UP, 90.0 * circulation_direction)
+	var dir_tangential = dir_to_player.rotated(Vector3.UP, deg_to_rad(90.0) * circulation_direction)
 	
 	# 2. Oblicz składowe prędkości XZ
 	var radial_velocity = dir_to_player * radial_speed
