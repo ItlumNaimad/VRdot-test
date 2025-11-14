@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://behhv5pt2bqg2"]
+[gd_scene load_steps=8 format=3 uid="uid://behhv5pt2bqg2"]
 
 [ext_resource type="Texture2D" uid="uid://d3qvt0affmqvn" path="res://Wooden Floor Texture/wood2_COLOR.jpg" id="1_e7wmj"]
 [ext_resource type="Script" uid="uid://ctcc0aifm7hcv" path="res://Scripts/teleport.gd" id="1_kev1v"]
-[ext_resource type="PackedScene" uid="uid://dw7awxlq7byjb" path="res://Scenes/second_room.tscn" id="2_hmyoj"]
 [ext_resource type="Texture2D" uid="uid://bkxkmyk7y0hl4" path="res://Wooden Floor Texture/wood2_NRM.jpg" id="2_kev1v"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_50glp"]
@@ -43,7 +42,6 @@ rings = 14
 collision_layer = 0
 collision_mask = 4096
 script = ExtResource("1_kev1v")
-target = ExtResource("2_hmyoj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.516841, 0, 1.91918)

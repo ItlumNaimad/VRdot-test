@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c81053mwqkqs"]
+
+[ext_resource type="PackedScene" uid="uid://cx7rie0g2kity" path="res://Scenes/Main Map/Main Map.glb" id="1_jbw0w"]
+
+[node name="GameMap" type="Node3D"]
+
+[node name="PlayerSpawn" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+
+[node name="Main Map" parent="." instance=ExtResource("1_jbw0w")]

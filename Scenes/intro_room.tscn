@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://c0ldu1b8yr62q"]
+[gd_scene load_steps=20 format=3 uid="uid://c0ldu1b8yr62q"]
 
 [ext_resource type="PackedScene" uid="uid://behhv5pt2bqg2" path="res://Scenes/teleport.tscn" id="1_cxelx"]
 [ext_resource type="Texture2D" uid="uid://d3qvt0affmqvn" path="res://Wooden Floor Texture/wood2_COLOR.jpg" id="2_1yxvv"]
+[ext_resource type="PackedScene" uid="uid://c81053mwqkqs" path="res://Scenes/game_map.tscn" id="2_71mb1"]
 [ext_resource type="Texture2D" uid="uid://bkxkmyk7y0hl4" path="res://Wooden Floor Texture/wood2_NRM.jpg" id="3_71mb1"]
 [ext_resource type="Texture2D" uid="uid://crqvck3ypuvd2" path="res://textures/Tiles074_2K-PNG/Tiles074_2K-PNG_Color.png" id="4_n16om"]
 [ext_resource type="Texture2D" uid="uid://53yt05lle15x" path="res://textures/Tiles074_2K-PNG/Tiles074_2K-PNG_Roughness.png" id="5_rtj6n"]
@@ -64,6 +65,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -16.3672, 0)
 
 [node name="Teleport" parent="." instance=ExtResource("1_cxelx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.109, -20, -46.015)
+target = ExtResource("2_71mb1")
 
 [node name="Bounds" type="Node3D" parent="."]
 

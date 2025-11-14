@@ -172,7 +172,6 @@ curve = SubResource("Curve3D_n2gwt")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="BaloraPath"]
 transform = Transform3D(0.377137, 0, -0.926131, 0, 1, 0, 0.926131, 0, 0.377137, -0.847119, 6.21176e-22, -21.417)
-progress = 135.972
 
 [node name="Balora" parent="BaloraPath/PathFollow3D" instance=ExtResource("10_n2gwt")]
 transform = Transform3D(-0.213697, 0, 0.9769, 0, 1, 0, -0.9769, 0, -0.213697, 0, 1.27474, 0)

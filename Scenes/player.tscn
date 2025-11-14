@@ -70,7 +70,7 @@ show_when_tracked = true
 mesh = SubResource("BoxMesh_50glp")
 
 [node name="MovementDirect" parent="RightCont" instance=ExtResource("3_mgmcv")]
-max_speed = 50.0
+max_speed = 15.0
 strafe = true
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="."]
