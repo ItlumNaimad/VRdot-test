@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://c81053mwqkqs"]
+[gd_scene load_steps=4 format=3 uid="uid://c81053mwqkqs"]
 
 [ext_resource type="PackedScene" uid="uid://cx7rie0g2kity" path="res://Scenes/Main Map/Main Map.glb" id="1_jbw0w"]
+[ext_resource type="PackedScene" uid="uid://c3b0popbmmu05" path="res://Scenes/screw_base.tscn" id="2_8wm8v"]
+[ext_resource type="PackedScene" uid="uid://dbnmoiby4w8sj" path="res://Scenes/red_light.tscn" id="3_c4nuu"]
 
 [node name="GameMap" type="Node3D"]
 
@@ -8,3 +10,60 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 
 [node name="Main Map" parent="." instance=ExtResource("1_jbw0w")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Main Map"]
+transform = Transform3D(0.806279, 0, -0.591535, 0, 1, 0, 0.591535, 0, 0.806279, -26.8308, 3.28301, 35.0485)
+
+[node name="screw_base" parent="Main Map/CSGBox3D" instance=ExtResource("2_8wm8v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0544891, 0.518852, 0.0420074)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Main Map"]
+transform = Transform3D(0.806279, 0, -0.591535, 0, 1, 0, 0.591535, 0, 0.806279, -41.0487, 3.29059, 54.4192)
+
+[node name="screw_base" parent="Main Map/CSGBox3D2" instance=ExtResource("2_8wm8v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0544891, 0.518852, 0.0420074)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Main Map"]
+transform = Transform3D(0.806279, 0, -0.591535, 0, 1, 0, 0.591535, 0, 0.806279, -17.0733, 3.29059, 74.2928)
+
+[node name="screw_base" parent="Main Map/CSGBox3D3" instance=ExtResource("2_8wm8v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0544891, 0.518852, 0.0420074)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Main Map"]
+transform = Transform3D(0.806279, 0, -0.591535, 0, 1, 0, 0.591535, 0, 0.806279, 5.66204, 3.29059, 50.2537)
+
+[node name="screw_base" parent="Main Map/CSGBox3D4" instance=ExtResource("2_8wm8v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0544891, 0.518852, 0.0420074)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Main Map"]
+transform = Transform3D(0.806279, 0, -0.591535, 0, 1, 0, 0.591535, 0, 0.806279, -21.5568, 3.29059, 50.2855)
+
+[node name="screw_base" parent="Main Map/CSGBox3D5" instance=ExtResource("2_8wm8v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0544891, 0.518852, 0.0420074)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Main Map"]
+transform = Transform3D(0.806279, 0, -0.591535, 0, 1, 0, 0.591535, 0, 0.806279, -22.7651, 3.29059, 52.0026)
+
+[node name="screw_base" parent="Main Map/CSGBox3D6" instance=ExtResource("2_8wm8v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0544891, 0.518852, 0.0420074)
+
+[node name="red_light" parent="." instance=ExtResource("3_c4nuu")]
+transform = Transform3D(-0.0232937, 0, -0.0869333, 0, 0.09, 0, 0.0869333, 0, -0.0232937, -41.636, 3.10713, 54.2296)
+
+[node name="red_light2" parent="." instance=ExtResource("3_c4nuu")]
+transform = Transform3D(-0.0232937, 0, -0.0869333, 0, 0.09, 0, 0.0869333, 0, -0.0232937, -22.1547, 3.10713, 51.6355)
+
+[node name="red_light3" parent="." instance=ExtResource("3_c4nuu")]
+transform = Transform3D(0.0636396, 0, 0.0636396, 0, 0.09, 0, -0.0636396, 0, 0.0636396, -3.69632, 3.10713, 38.8518)
+
+[node name="red_light4" parent="." instance=ExtResource("3_c4nuu")]
+transform = Transform3D(0.0636396, 0, 0.0636396, 0, 0.09, 0, -0.0636396, 0, 0.0636396, 19.23, 3.10713, 28.4829)
+
+[node name="red_light5" parent="." instance=ExtResource("3_c4nuu")]
+transform = Transform3D(0.0636396, 0, 0.0636396, 0, 0.09, 0, -0.0636396, 0, 0.0636396, 12.1806, 3.10713, -8.1992)
+
+[node name="red_light6" parent="." instance=ExtResource("3_c4nuu")]
+transform = Transform3D(-0.00504325, 0.00156039, -0.089845, 0.0389946, 0.0811099, -0.0007802, 0.0809567, -0.0389711, -0.00522115, 3.04798, 11.1037, 11.2112)
+
+[node name="red_light7" parent="." instance=ExtResource("3_c4nuu")]
+transform = Transform3D(-0.00504325, 0.00156039, -0.089845, 0.0389946, 0.0811099, -0.0007802, 0.0809567, -0.0389711, -0.00522115, 0.442399, 6.96701, 11.2112)
