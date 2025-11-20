@@ -28,6 +28,12 @@ func _on_teleport() -> void:
 func _on_right_button(name: String) -> void:
 	if name == 'trigger_click':
 		_on_teleport()
+		$RightCont/Flashlight.activate()
+
+func _on_right_button_released(name: String) -> void:
+	if name == 'trigger_click':
+		$RightCont/Flashlight.deactivate()
+
 
 func _ready() -> void:
 	XRInit.init(get_viewport())

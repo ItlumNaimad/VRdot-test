@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://dag1s41qya37b"]
+
+[ext_resource type="Script" uid="uid://fwg5llf1vd5b" path="res://Scripts/flashlight.gd" id="1_5higp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5higp"]
+albedo_color = Color(0.351674, 0.352139, 0.452039, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_b0acp"]
+material = SubResource("StandardMaterial3D_5higp")
+radius = 0.04
+height = 0.2
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5higp"]
+height = 0.5
+radius = 0.03
+
+[node name="Flashlight" type="Node3D"]
+script = ExtResource("1_5higp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.05)
+mesh = SubResource("CapsuleMesh_b0acp")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, -5.96046e-08, 0, 5.96046e-08, -1, 0, 0, 0.14188)
+visible = false
+light_color = Color(1, 0.766667, 0, 1)
+spot_range = 0.8
+spot_attenuation = 2.0
+spot_angle = 20.0
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
+visible = false
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.3)
+shape = SubResource("CylinderShape3D_5higp")

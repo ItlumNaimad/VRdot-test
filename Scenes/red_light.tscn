@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://dbnmoiby4w8sj"]
+[gd_scene load_steps=7 format=4 uid="uid://dbnmoiby4w8sj"]
 
 [ext_resource type="PackedScene" uid="uid://xxjivb04yk0u" path="res://Scenes/red_light.glb" id="1_x5lf3"]
 [ext_resource type="Material" uid="uid://dc2pvtiqb254g" path="res://Materials/red_light_cone.tres" id="2_3mq7c"]
+[ext_resource type="Script" uid="uid://dma42weootdem" path="res://Scripts/red_light.gd" id="2_y1fgx"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_3hccg"]
 _surfaces = [{
@@ -35,11 +36,26 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_3hccg")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_eml47"]
+size = Vector3(0.1, 0.2, 0.2)
+
 [node name="red_light" instance=ExtResource("1_x5lf3")]
+script = ExtResource("2_y1fgx")
 
 [node name="Cube" parent="." index="0"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 
 [node name="Cone" parent="." index="1"]
 transform = Transform3D(-4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0, 0, 0, 0.1, -0.7, 0, 0)
+instance_shader_parameters/emission = Color(1, 0, 0, 1)
 mesh = SubResource("ArrayMesh_y1fgx")
+
+[node name="Collision" type="Area3D" parent="." index="2"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, 0)
+shape = SubResource("BoxShape3D_eml47")
+
+[connection signal="area_entered" from="Collision" to="." method="_on_area_entered"]

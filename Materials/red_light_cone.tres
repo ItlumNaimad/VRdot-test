@@ -12,5 +12,4 @@ curve = SubResource("Curve_3mq7c")
 [resource]
 render_priority = 0
 shader = ExtResource("1_bmhog")
-shader_parameter/emission = Color(1, 0, 0, 1)
 shader_parameter/ramp = SubResource("CurveTexture_3mq7c")

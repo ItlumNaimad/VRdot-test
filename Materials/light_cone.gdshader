@@ -1,7 +1,7 @@
 shader_type spatial;
 render_mode blend_mix, unshaded, cull_disabled;
 
-uniform vec3 emission : source_color;
+instance uniform vec3 emission : source_color;
 uniform sampler2D ramp;
 
 varying float opacity;

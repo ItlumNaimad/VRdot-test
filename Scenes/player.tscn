@@ -1,14 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://bcqemaop4hgfp"]
+[gd_scene load_steps=13 format=3 uid="uid://bcqemaop4hgfp"]
 
 [ext_resource type="Script" uid="uid://caausuqxec3aq" path="res://Scripts/XRPlayer.gd" id="1_kp876"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="2_bjx00"]
+[ext_resource type="PackedScene" uid="uid://b8hc2ex21u8xj" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_physics_fullglove_low.tscn" id="3_3smsa"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="3_mgmcv"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="4_mwrhm"]
 [ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="4_ufjd5"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ufjd5"]
-radius = 0.466162
-height = 1.91953
+[ext_resource type="PackedScene" uid="uid://bkdeegb8w3oah" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_physics_fullglove_low.tscn" id="6_8erm5"]
+[ext_resource type="PackedScene" uid="uid://dag1s41qya37b" path="res://Scenes/flashlight.tscn" id="8_8erm5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pbw6q"]
 albedo_color = Color(0.811154, 0.215819, 0.225851, 1)
@@ -29,9 +28,6 @@ script = ExtResource("1_kp876")
 
 [node name="PlayerBody" parent="." instance=ExtResource("2_bjx00")]
 collision_layer = 528384
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerBody"]
-shape = SubResource("CapsuleShape3D_ufjd5")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="."]
 
@@ -55,7 +51,10 @@ tracker = &"left_hand"
 show_when_tracked = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="LeftCont"]
+visible = false
 mesh = SubResource("BoxMesh_v1gob")
+
+[node name="LeftPhysicsHand" parent="LeftCont" instance=ExtResource("3_3smsa")]
 
 [node name="FunctionTeleport" parent="LeftCont" instance=ExtResource("4_ufjd5")]
 strength = 4.0
@@ -67,11 +66,17 @@ tracker = &"right_hand"
 show_when_tracked = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RightCont"]
+visible = false
 mesh = SubResource("BoxMesh_50glp")
+
+[node name="RightPhysicsHand" parent="RightCont" instance=ExtResource("6_8erm5")]
 
 [node name="MovementDirect" parent="RightCont" instance=ExtResource("3_mgmcv")]
 max_speed = 15.0
 strafe = true
+
+[node name="Flashlight" parent="RightCont" instance=ExtResource("8_8erm5")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.05, 0.1)
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -3.51947, 0.172999)
@@ -80,3 +85,4 @@ spot_range = 4.34887
 spot_angle = 37.33
 
 [connection signal="button_pressed" from="RightCont" to="." method="_on_right_button"]
+[connection signal="button_released" from="RightCont" to="." method="_on_right_button_released"]
