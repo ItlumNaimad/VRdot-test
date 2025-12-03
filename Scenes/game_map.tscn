@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://c81053mwqkqs"]
+[gd_scene load_steps=7 format=3 uid="uid://c81053mwqkqs"]
 
 [ext_resource type="PackedScene" uid="uid://cx7rie0g2kity" path="res://Scenes/Main Map/Main Map.glb" id="1_jbw0w"]
 [ext_resource type="PackedScene" uid="uid://c3b0popbmmu05" path="res://Scenes/screw_base.tscn" id="2_8wm8v"]
 [ext_resource type="PackedScene" uid="uid://dbnmoiby4w8sj" path="res://Scenes/red_light.tscn" id="3_c4nuu"]
+[ext_resource type="AudioStream" uid="uid://bqoamm4pa1ug6" path="res://assets/Horror ambient 1v2.ogg" id="4_d8w4w"]
+[ext_resource type="Script" uid="uid://coe535oolvoc2" path="res://Scripts/sp_00_ky_s_0_und.gd" id="5_rlp0x"]
+[ext_resource type="AudioStream" uid="uid://cxwailkkjmu2v" path="res://assets/Broken bell.ogg" id="6_mue85"]
 
 [node name="GameMap" type="Node"]
 
@@ -68,3 +71,29 @@ transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 
 
 [node name="door_light" parent="." instance=ExtResource("3_c4nuu")]
 transform = Transform3D(-0.0560361, 0.0173377, -0.998278, 0.433273, 0.901221, -0.00866876, 0.899519, -0.433013, -0.0580129, 0.245857, 3.69539, 6.6763)
+
+[node name="BackgroundAmbience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_d8w4w")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
+
+[node name="Sp00kyS0und" type="Node3D" parent="."]
+script = ExtResource("5_rlp0x")
+
+[node name="BrokenBell" type="AudioStreamPlayer3D" parent="Sp00kyS0und"]
+stream = ExtResource("6_mue85")
+volume_db = -3.0
+unit_size = 25.0
+
+[node name="Marker3D" type="Marker3D" parent="Sp00kyS0und"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.55191, 8.32467, -4.4186)
+
+[node name="Marker3D2" type="Marker3D" parent="Sp00kyS0und"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.3077, 3.62315, 33.0799)
+
+[node name="Marker3D3" type="Marker3D" parent="Sp00kyS0und"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2328, 2.02736, 30.688)
+
+[node name="Marker3D4" type="Marker3D" parent="Sp00kyS0und"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6809, 1.76369, 19.8263)
