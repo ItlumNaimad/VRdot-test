@@ -72,7 +72,7 @@ mesh = SubResource("BoxMesh_50glp")
 [node name="RightPhysicsHand" parent="RightCont" instance=ExtResource("6_8erm5")]
 
 [node name="MovementDirect" parent="RightCont" instance=ExtResource("3_mgmcv")]
-max_speed = 15.0
+max_speed = 4.0
 strafe = true
 
 [node name="Flashlight" parent="RightCont" instance=ExtResource("8_8erm5")]

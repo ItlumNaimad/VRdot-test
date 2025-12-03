@@ -37,16 +37,16 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_3hccg")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eml47"]
-size = Vector3(0.1, 0.2, 0.2)
+size = Vector3(0.03, 0.06, 0.06)
 
 [node name="red_light" instance=ExtResource("1_x5lf3")]
 script = ExtResource("2_y1fgx")
 
 [node name="Cube" parent="." index="0"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0)
 
 [node name="Cone" parent="." index="1"]
-transform = Transform3D(-4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0, 0, 0, 0.1, -0.7, 0, 0)
+transform = Transform3D(-1.31134e-09, 0.03, 0, -0.03, -1.31134e-09, 0, 0, 0, 0.03, -0.2, 0, 0)
 instance_shader_parameters/emission = Color(1, 0, 0, 1)
 mesh = SubResource("ArrayMesh_y1fgx")
 
@@ -55,7 +55,7 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Collision" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03, 0, 0)
 shape = SubResource("BoxShape3D_eml47")
 
 [connection signal="area_entered" from="Collision" to="." method="_on_area_entered"]

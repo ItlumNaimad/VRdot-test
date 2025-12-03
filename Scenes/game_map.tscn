@@ -4,12 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://c3b0popbmmu05" path="res://Scenes/screw_base.tscn" id="2_8wm8v"]
 [ext_resource type="PackedScene" uid="uid://dbnmoiby4w8sj" path="res://Scenes/red_light.tscn" id="3_c4nuu"]
 
-[node name="GameMap" type="Node3D"]
+[node name="GameMap" type="Node"]
 
 [node name="PlayerSpawn" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
 
 [node name="Main Map" parent="." instance=ExtResource("1_jbw0w")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Main Map"]
 transform = Transform3D(0.806279, 0, -0.591535, 0, 1, 0, 0.591535, 0, 0.806279, -26.8308, 3.28301, 35.0485)
@@ -48,22 +49,22 @@ transform = Transform3D(0.806279, 0, -0.591535, 0, 1, 0, 0.591535, 0, 0.806279, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0544891, 0.518852, 0.0420074)
 
 [node name="red_light" parent="." instance=ExtResource("3_c4nuu")]
-transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, -41.636, 3.10713, 54.2296)
+transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, -16.3914, 1.8176, 20.8922)
 
 [node name="red_light2" parent="." instance=ExtResource("3_c4nuu")]
-transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, -22.1547, 3.10713, 51.6355)
+transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 3.78174, 1.83576, 30.0676)
 
 [node name="red_light3" parent="." instance=ExtResource("3_c4nuu")]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -3.69632, 3.10713, 38.8518)
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -10.2178, 1.83576, 44.9839)
 
 [node name="red_light4" parent="." instance=ExtResource("3_c4nuu")]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 19.23, 3.10713, 28.4829)
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -24.8012, 1.83576, 32.8968)
 
 [node name="red_light5" parent="." instance=ExtResource("3_c4nuu")]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 12.1806, 3.10713, -8.1992)
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -13.0057, 1.83576, 30.4871)
 
 [node name="red_light6" parent="." instance=ExtResource("3_c4nuu")]
-transform = Transform3D(-0.0560361, 0.0173377, -0.998278, 0.433273, 0.901221, -0.00866876, 0.899519, -0.433013, -0.0580129, 3.04798, 11.1037, 11.2112)
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 12.4315, 1.86606, 16.537)
 
-[node name="red_light7" parent="." instance=ExtResource("3_c4nuu")]
-transform = Transform3D(-0.0560361, 0.0173377, -0.998278, 0.433273, 0.901221, -0.00866876, 0.899519, -0.433013, -0.0580129, 0.442399, 4.8485, 11.2112)
+[node name="door_light" parent="." instance=ExtResource("3_c4nuu")]
+transform = Transform3D(-0.0560361, 0.0173377, -0.998278, 0.433273, 0.901221, -0.00866876, 0.899519, -0.433013, -0.0580129, 0.245857, 3.69539, 6.6763)
