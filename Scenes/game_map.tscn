@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c81053mwqkqs"]
+[gd_scene load_steps=11 format=3 uid="uid://c81053mwqkqs"]
 
 [ext_resource type="PackedScene" uid="uid://cx7rie0g2kity" path="res://Scenes/Main Map/Main Map.glb" id="1_jbw0w"]
 [ext_resource type="PackedScene" uid="uid://c3b0popbmmu05" path="res://Scenes/screw_base.tscn" id="2_8wm8v"]
@@ -6,6 +6,18 @@
 [ext_resource type="AudioStream" uid="uid://bqoamm4pa1ug6" path="res://assets/Horror ambient 1v2.ogg" id="4_d8w4w"]
 [ext_resource type="Script" uid="uid://coe535oolvoc2" path="res://Scripts/sp_00_ky_s_0_und.gd" id="5_rlp0x"]
 [ext_resource type="AudioStream" uid="uid://cxwailkkjmu2v" path="res://assets/Broken bell.ogg" id="6_mue85"]
+[ext_resource type="Script" uid="uid://dyorpswfrsk26" path="res://Scripts/door.gd" id="7_mue85"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mue85"]
+transparency = 1
+albedo_color = Color(0.439049, 0.439049, 0.439049, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rlp0x"]
+material = SubResource("StandardMaterial3D_mue85")
+size = Vector3(2.1, 4.8, 0.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rlp0x"]
+size = Vector3(2.1, 4.8, 0.4)
 
 [node name="GameMap" type="Node"]
 
@@ -97,3 +109,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2328, 2.02736, 30.688)
 
 [node name="Marker3D4" type="Marker3D" parent="Sp00kyS0und"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6809, 1.76369, 19.8263)
+
+[node name="Door" type="StaticBody3D" parent="."]
+transform = Transform3D(0.999998, 0, 0.00174533, 0, 1, 0, -0.00174533, 0, 0.999998, 1.57791, 4.12511, 6.84989)
+script = ExtResource("7_mue85")
+move_offset = Vector3(0, 5, 0)
+duration = 3.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_rlp0x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door"]
+shape = SubResource("BoxShape3D_rlp0x")
+
+[connection signal="area_lit" from="door_light" to="Door" method="move"]
