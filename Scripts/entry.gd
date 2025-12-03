@@ -19,6 +19,9 @@ func teleport_to_room(room: PackedScene) -> void:
 	for child in _rooms:
 		if child.scene_file_path == room.resource_path:
 			return activate_scene(child)
+	var inst := room.instantiate()
+	_rooms.push_back(inst)
+	activate_scene(inst)
 
 func activate_scene(node: Node) -> void:
 	assert(node in _rooms)
