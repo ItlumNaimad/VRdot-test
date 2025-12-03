@@ -117,10 +117,20 @@ move_offset = Vector3(0, 5, 0)
 duration = 3.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Door"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_rlp0x")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Door"]
 shape = SubResource("BoxShape3D_rlp0x")
 
+[node name="LightTutorial" type="Node" parent="."]
+
+[node name="Label3D" type="Label3D" parent="LightTutorial"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.440368, 3.27714, 5.0677)
+billboard = 2
+shaded = true
+modulate = Color(0.42, 0.739, 1, 1)
+text = "Podejdź do czerwonego światła
+Użyj latarki nacijskając prawy trigger na spodzie kontrolera, aby zaświecić do środka bloku"
+
 [connection signal="area_lit" from="door_light" to="Door" method="move"]
+[connection signal="area_lit" from="door_light" to="LightTutorial" method="queue_free"]
