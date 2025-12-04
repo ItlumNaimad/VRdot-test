@@ -28,61 +28,73 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Main Map"]
-transform = Transform3D(0.806279, 0, -0.591535, 0, 1, 0, 0.591535, 0, 0.806279, -26.8308, 3.28301, 35.0485)
+transform = Transform3D(0.806279, 0, -0.591535, 0, 1, 0, 0.591535, 0, 0.806279, -16.0985, 1.96981, 21.0291)
 
 [node name="screw_base" parent="Main Map/CSGBox3D" instance=ExtResource("2_8wm8v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0544891, 0.518852, 0.0420074)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Main Map"]
-transform = Transform3D(0.806279, 0, -0.591535, 0, 1, 0, 0.591535, 0, 0.806279, -41.0487, 3.29059, 54.4192)
+transform = Transform3D(0.806279, 0, -0.591535, 0, 1, 0, 0.591535, 0, 0.806279, -24.6292, 1.97435, 32.6515)
 
 [node name="screw_base" parent="Main Map/CSGBox3D2" instance=ExtResource("2_8wm8v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0544891, 0.518852, 0.0420074)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Main Map"]
-transform = Transform3D(0.806279, 0, -0.591535, 0, 1, 0, 0.591535, 0, 0.806279, -17.0733, 3.29059, 74.2928)
+transform = Transform3D(-0.806279, 0, 0.591535, 0, 1, 0, -0.591535, 0, -0.806279, -10.244, 1.97435, 44.5757)
 
 [node name="screw_base" parent="Main Map/CSGBox3D3" instance=ExtResource("2_8wm8v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0544891, 0.518852, 0.0420074)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Main Map"]
-transform = Transform3D(0.806279, 0, -0.591535, 0, 1, 0, 0.591535, 0, 0.806279, 5.66204, 3.29059, 50.2537)
+transform = Transform3D(-0.806279, 0, 0.591535, 0, 1, 0, -0.591535, 0, -0.806279, 3.39722, 1.97435, 30.1522)
 
 [node name="screw_base" parent="Main Map/CSGBox3D4" instance=ExtResource("2_8wm8v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0544891, 0.518852, 0.0420074)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="Main Map"]
-transform = Transform3D(0.806279, 0, -0.591535, 0, 1, 0, 0.591535, 0, 0.806279, -21.5568, 3.29059, 50.2855)
+transform = Transform3D(0.591535, 0, 0.806279, 0, 1, 0, -0.806279, 0, 0.591535, -12.7038, 1.97435, 29.8574)
 
 [node name="screw_base" parent="Main Map/CSGBox3D5" instance=ExtResource("2_8wm8v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0544891, 0.518852, 0.0420074)
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="Main Map"]
-transform = Transform3D(0.806279, 0, -0.591535, 0, 1, 0, 0.591535, 0, 0.806279, -22.7651, 3.29059, 52.0026)
+transform = Transform3D(-0.591535, 0, -0.806279, 0, 1, 0, 0.806279, 0, -0.591535, -13.7586, 1.97435, 31.3372)
 
 [node name="screw_base" parent="Main Map/CSGBox3D6" instance=ExtResource("2_8wm8v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0544891, 0.518852, 0.0420074)
 
-[node name="red_light" parent="." instance=ExtResource("3_c4nuu")]
-transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, -16.3914, 1.8176, 20.8922)
+[node name="RedLight" parent="." instance=ExtResource("3_c4nuu")]
+transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, -16.4709, 1.8176, 20.6818)
 
-[node name="red_light2" parent="." instance=ExtResource("3_c4nuu")]
-transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 3.78174, 1.83576, 30.0676)
+[node name="RedLight2" parent="." instance=ExtResource("3_c4nuu")]
+transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 3.95777, 1.83576, 29.9299)
 
-[node name="red_light3" parent="." instance=ExtResource("3_c4nuu")]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -10.2178, 1.83576, 44.9839)
+[node name="RedLight3" parent="." instance=ExtResource("3_c4nuu")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -10.3333, 1.83576, 45.1258)
 
-[node name="red_light4" parent="." instance=ExtResource("3_c4nuu")]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -24.8012, 1.83576, 32.8968)
+[node name="RedLight4" parent="." instance=ExtResource("3_c4nuu")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -24.9442, 1.83576, 33.0352)
 
-[node name="red_light5" parent="." instance=ExtResource("3_c4nuu")]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -13.0057, 1.83576, 30.4871)
+[node name="RedLight5" parent="." instance=ExtResource("3_c4nuu")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -13.0218, 1.83576, 30.2632)
 
-[node name="red_light6" parent="." instance=ExtResource("3_c4nuu")]
+[node name="RedLight6" parent="." instance=ExtResource("3_c4nuu")]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 12.4315, 1.86606, 16.537)
 
-[node name="door_light" parent="." instance=ExtResource("3_c4nuu")]
-transform = Transform3D(-0.0560361, 0.0173377, -0.998278, 0.433273, 0.901221, -0.00866876, 0.899519, -0.433013, -0.0580129, 0.245857, 3.69539, 6.6763)
+[node name="Door" type="StaticBody3D" parent="."]
+transform = Transform3D(0.999998, 0, 0.00174533, 0, 1, 0, -0.00174533, 0, 0.999998, 1.57791, 4.12511, 6.84989)
+script = ExtResource("7_mue85")
+move_offset = Vector3(0, 5, 0)
+duration = 3.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Door"]
+mesh = SubResource("BoxMesh_rlp0x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door"]
+shape = SubResource("BoxShape3D_rlp0x")
+
+[node name="DoorLight" parent="." instance=ExtResource("3_c4nuu")]
+transform = Transform3D(-0.0560361, 0.0173377, -0.998278, 0.433273, 0.901221, -0.00866876, 0.899519, -0.433013, -0.0580129, 0.240712, 3.7098, 6.66263)
 
 [node name="BackgroundAmbience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_d8w4w")
@@ -110,18 +122,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2328, 2.02736, 30.688)
 [node name="Marker3D4" type="Marker3D" parent="Sp00kyS0und"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6809, 1.76369, 19.8263)
 
-[node name="Door" type="StaticBody3D" parent="."]
-transform = Transform3D(0.999998, 0, 0.00174533, 0, 1, 0, -0.00174533, 0, 0.999998, 1.57791, 4.12511, 6.84989)
-script = ExtResource("7_mue85")
-move_offset = Vector3(0, 5, 0)
-duration = 3.0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Door"]
-mesh = SubResource("BoxMesh_rlp0x")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Door"]
-shape = SubResource("BoxShape3D_rlp0x")
-
 [node name="LightTutorial" type="Node" parent="."]
 
 [node name="Label3D" type="Label3D" parent="LightTutorial"]
@@ -132,5 +132,5 @@ modulate = Color(0.42, 0.739, 1, 1)
 text = "Podejdź do czerwonego światła
 Użyj latarki nacijskając prawy trigger na spodzie kontrolera, aby zaświecić do środka bloku"
 
-[connection signal="area_lit" from="door_light" to="Door" method="move"]
-[connection signal="area_lit" from="door_light" to="LightTutorial" method="queue_free"]
+[connection signal="area_lit" from="DoorLight" to="Door" method="move"]
+[connection signal="area_lit" from="DoorLight" to="LightTutorial" method="queue_free"]

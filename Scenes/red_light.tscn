@@ -39,7 +39,7 @@ shadow_mesh = SubResource("ArrayMesh_3hccg")
 [sub_resource type="BoxShape3D" id="BoxShape3D_eml47"]
 size = Vector3(0.03, 0.06, 0.06)
 
-[node name="red_light" instance=ExtResource("1_x5lf3")]
+[node name="RedLight" instance=ExtResource("1_x5lf3")]
 script = ExtResource("2_y1fgx")
 strength = 0.8
 
