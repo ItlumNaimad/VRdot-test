@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://df203xvoyy8mh"]
+
+[ext_resource type="Script" uid="uid://c41wv3m6s1hs1" path="res://Scripts/screw_basket.gd" id="1_cnwmd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qjvrx"]
+size = Vector3(0.8, 0.6, 0.8)
+
+[node name="ScrewBasket" type="CSGCombiner3D"]
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_cnwmd")
+
+[node name="Body" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+size = Vector3(1, 0.8, 1)
+
+[node name="Inner" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.093751, 0)
+operation = 2
+size = Vector3(0.8, 0.6, 0.8)
+
+[node name="Area3D" type="Area3D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 256
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_qjvrx")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 2
+modulate = Color(0, 0.506149, 0.836569, 1)
+text = "🔩 X/Y"
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_body_exited"]
