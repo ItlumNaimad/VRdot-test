@@ -1,11 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkgwjsesbec4e"]
+[gd_scene load_steps=7 format=3 uid="uid://bkgwjsesbec4e"]
 
+[ext_resource type="Script" uid="uid://dje1031ilwuob" path="res://Scripts/screw.gd" id="1_6cr6i"]
 [ext_resource type="Material" uid="uid://52oehhvanpu7" path="res://Materials/electrified.tres" id="2_uri8m"]
 [ext_resource type="ArrayMesh" uid="uid://boumm4p7goejp" path="res://Scenes/screw.mesh" id="2_xd4pm"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="3_fk7dp"]
+[ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="5_aeshg"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sa2bq"]
+radius = 0.03
+height = 0.3
 
 [node name="Screw" type="RigidBody3D"]
+collision_layer = 65792
+collision_mask = 65543
+freeze = true
+freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 4
+script = ExtResource("1_6cr6i")
+picked_up_mask = 4
+release_mode = 0
 
 [node name="BézierCircle" type="MeshInstance3D" parent="."]
 mesh = ExtResource("2_xd4pm")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_uri8m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_sa2bq")
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("3_fk7dp")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.00028993, 0.0374271, 0.0548464)
+
+[node name="HighlightRing" parent="." instance=ExtResource("5_aeshg")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

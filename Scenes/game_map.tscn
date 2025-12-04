@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://c81053mwqkqs"]
 
 [ext_resource type="PackedScene" uid="uid://cx7rie0g2kity" path="res://Scenes/Main Map/Main Map.glb" id="1_jbw0w"]
-[ext_resource type="PackedScene" uid="uid://c3b0popbmmu05" path="res://Scenes/screw_base.tscn" id="2_8wm8v"]
+[ext_resource type="PackedScene" uid="uid://ddwkochiv230u" path="res://Scenes/screw_station.tscn" id="2_mue85"]
 [ext_resource type="PackedScene" uid="uid://dbnmoiby4w8sj" path="res://Scenes/red_light.tscn" id="3_c4nuu"]
 [ext_resource type="AudioStream" uid="uid://bqoamm4pa1ug6" path="res://assets/Horror ambient 1v2.ogg" id="4_d8w4w"]
 [ext_resource type="Script" uid="uid://coe535oolvoc2" path="res://Scripts/sp_00_ky_s_0_und.gd" id="5_rlp0x"]
@@ -27,42 +27,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
 [node name="Main Map" parent="." instance=ExtResource("1_jbw0w")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Main Map"]
-transform = Transform3D(0.806279, 0, -0.591535, 0, 1, 0, 0.591535, 0, 0.806279, -16.0985, 1.96981, 21.0291)
-
-[node name="screw_base" parent="Main Map/CSGBox3D" instance=ExtResource("2_8wm8v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0544891, 0.518852, 0.0420074)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Main Map"]
-transform = Transform3D(0.806279, 0, -0.591535, 0, 1, 0, 0.591535, 0, 0.806279, -24.6292, 1.97435, 32.6515)
-
-[node name="screw_base" parent="Main Map/CSGBox3D2" instance=ExtResource("2_8wm8v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0544891, 0.518852, 0.0420074)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="Main Map"]
-transform = Transform3D(-0.806279, 0, 0.591535, 0, 1, 0, -0.591535, 0, -0.806279, -10.244, 1.97435, 44.5757)
-
-[node name="screw_base" parent="Main Map/CSGBox3D3" instance=ExtResource("2_8wm8v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0544891, 0.518852, 0.0420074)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="Main Map"]
-transform = Transform3D(-0.806279, 0, 0.591535, 0, 1, 0, -0.591535, 0, -0.806279, 3.39722, 1.97435, 30.1522)
-
-[node name="screw_base" parent="Main Map/CSGBox3D4" instance=ExtResource("2_8wm8v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0544891, 0.518852, 0.0420074)
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="Main Map"]
-transform = Transform3D(0.591535, 0, 0.806279, 0, 1, 0, -0.806279, 0, 0.591535, -12.7038, 1.97435, 29.8574)
-
-[node name="screw_base" parent="Main Map/CSGBox3D5" instance=ExtResource("2_8wm8v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0544891, 0.518852, 0.0420074)
-
-[node name="CSGBox3D6" type="CSGBox3D" parent="Main Map"]
-transform = Transform3D(-0.591535, 0, -0.806279, 0, 1, 0, 0.806279, 0, -0.591535, -13.7586, 1.97435, 31.3372)
-
-[node name="screw_base" parent="Main Map/CSGBox3D6" instance=ExtResource("2_8wm8v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0544891, 0.518852, 0.0420074)
-
 [node name="RedLight" parent="." instance=ExtResource("3_c4nuu")]
 transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, -16.4709, 1.8176, 20.6818)
 
@@ -80,6 +44,24 @@ transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 
 
 [node name="RedLight6" parent="." instance=ExtResource("3_c4nuu")]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 12.4315, 1.86606, 16.537)
+
+[node name="ScrewStation" parent="." instance=ExtResource("2_mue85")]
+transform = Transform3D(0.806279, 0, -0.591535, 0, 1, 0, 0.591535, 0, 0.806279, -16.0985, 1.96981, 21.0291)
+
+[node name="ScrewStation2" parent="." instance=ExtResource("2_mue85")]
+transform = Transform3D(0.806279, 0, -0.591535, 0, 1, 0, 0.591535, 0, 0.806279, -24.6292, 1.97435, 32.6515)
+
+[node name="ScrewStation3" parent="." instance=ExtResource("2_mue85")]
+transform = Transform3D(-0.806279, 0, 0.591535, 0, 1, 0, -0.591535, 0, -0.806279, -10.244, 1.97435, 44.5757)
+
+[node name="ScrewStation4" parent="." instance=ExtResource("2_mue85")]
+transform = Transform3D(-0.806279, 0, 0.591535, 0, 1, 0, -0.591535, 0, -0.806279, 3.39722, 1.97435, 30.1522)
+
+[node name="ScrewStation5" parent="." instance=ExtResource("2_mue85")]
+transform = Transform3D(0.591535, 0, 0.806279, 0, 1, 0, -0.806279, 0, 0.591535, -12.7038, 1.97435, 29.8574)
+
+[node name="ScrewStation6" parent="." instance=ExtResource("2_mue85")]
+transform = Transform3D(-0.591535, 0, -0.806279, 0, 1, 0, 0.806279, 0, -0.591535, -13.7586, 1.97435, 31.3372)
 
 [node name="Door" type="StaticBody3D" parent="."]
 transform = Transform3D(0.999998, 0, 0.00174533, 0, 1, 0, -0.00174533, 0, 0.999998, 1.57791, 4.12511, 6.84989)

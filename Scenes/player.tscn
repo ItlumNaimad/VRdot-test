@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bcqemaop4hgfp"]
+[gd_scene load_steps=14 format=3 uid="uid://bcqemaop4hgfp"]
 
 [ext_resource type="Script" uid="uid://caausuqxec3aq" path="res://Scripts/XRPlayer.gd" id="1_kp876"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="2_bjx00"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="4_ufjd5"]
 [ext_resource type="PackedScene" uid="uid://bkdeegb8w3oah" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_physics_fullglove_low.tscn" id="6_8erm5"]
 [ext_resource type="PackedScene" uid="uid://dag1s41qya37b" path="res://Scenes/flashlight.tscn" id="8_8erm5"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="8_f1ek2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pbw6q"]
 albedo_color = Color(0.811154, 0.215819, 0.225851, 1)
@@ -28,6 +29,7 @@ script = ExtResource("1_kp876")
 
 [node name="PlayerBody" parent="." instance=ExtResource("2_bjx00")]
 collision_layer = 528384
+collision_mask = 17
 
 [node name="XRCamera3D" type="XRCamera3D" parent="."]
 
@@ -74,6 +76,12 @@ mesh = SubResource("BoxMesh_50glp")
 [node name="MovementDirect" parent="RightCont" instance=ExtResource("3_mgmcv")]
 max_speed = 4.0
 strafe = true
+
+[node name="FunctionPickup" parent="RightCont" instance=ExtResource("8_f1ek2")]
+grab_distance = 0.05
+grab_collision_mask = 327680
+ranged_collision_mask = 0
+velocity_samples = 20
 
 [node name="Flashlight" parent="RightCont" instance=ExtResource("8_8erm5")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.05, 0.1)

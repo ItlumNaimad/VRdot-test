@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddwkochiv230u"]
+
+[ext_resource type="PackedScene" uid="uid://c3b0popbmmu05" path="res://Scenes/screw_base.tscn" id="1_p8hge"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_57m6v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p8hge"]
+size = Vector3(0.8, 1, 1)
+
+[node name="ScrewStation" type="StaticBody3D"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_57m6v")
+
+[node name="ScrewBase" parent="." instance=ExtResource("1_p8hge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0544891, 0.518852, 0.0420074)
+
+[node name="PlayerCol" type="StaticBody3D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerCol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, 0)
+shape = SubResource("BoxShape3D_p8hge")
+
+[node name="Front" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.564331, 0.926762, 0)
+gizmo_extents = 7.1
